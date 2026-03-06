@@ -16,9 +16,6 @@ def train_logistic_regression(X, y, lr=0.1, steps=1000):
         z       = X @ w + b
         y_hat   = _sigmoid(z)                
 
-        loss = -np.mean(y * np.log(y_hat + 1e-9) +
-                        (1 - y) * np.log(1 - y_hat + 1e-9))
-
         error   = y_hat - y                  
         dw      = (X.T @ error) / n_samples  
         db      = np.mean(error)             
